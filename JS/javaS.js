@@ -103,3 +103,18 @@ document.addEventListener('DOMContentLoaded', () => {
       localStorage.setItem('carrito', JSON.stringify(carrito));
     });
   });
+
+// Script para Formulario
+// Mustra la contraseña ingresada
+
+function togglePassword() {
+  const passwordInput = document.getElementById("password");
+  const type = passwordInput.type === "password" ? "text" : "password";
+  passwordInput.type = type;
+}
+
+function toggleConfirmPassword() {
+  const passwordInput = document.getElementById("confirmPassword");
+  const type = passwordInput.type === "password" ? "text" : "password";
+  passwordInput.type = type;
+}

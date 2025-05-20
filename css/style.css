@@ -3,9 +3,6 @@ body {
     margin: 0;
 }
 
-/* --- ESTILOS GENERALES DE ENCABEZADO Y NAVEGACIÓN --- */
-/* Esta sección define un estilo base para cualquier 'header' o 'nav' */
-/* Puede que quieras ajustar estos si tu index.html tiene un header muy diferente */
 header {
     height: 70px;
     background-color: #BFA36F;
@@ -52,7 +49,6 @@ nav a:hover {
 }
 
 /* --- ESTILOS ESPECÍFICOS PARA EL ENCABEZADO DE PRODUCTOS (Y AHORA TAMBIÉN INDEX) --- */
-/* Usaremos esta clase 'encabezado-productos' en AMBOS headers (index y productos) */
 .encabezado-productos {
     display: flex; /* Habilitar Flexbox para el header */
     align-items: center; /* Alinear verticalmente los ítems */

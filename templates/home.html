@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenido a AMD (Tu Plataforma)</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background-color: #1a1a1a; /* Fondo oscuro similar a sitios de tecnología */
+            color: #e0e0e0; /* Texto claro */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .navbar {
+            background-color: #2b2b2b; /* Barra de navegación más oscura */
+            border-bottom: 3px solid #e2002f; /* Línea roja distintiva de AMD */
+        }
+        .navbar-brand {
+            color: #e0e0e0 !important;
+            font-weight: bold;
+        }
+        .navbar-nav .nav-link {
+            color: #e0e0e0 !important;
+            transition: color 0.3s;
+        }
+        .navbar-nav .nav-link:hover {
+            color: #e2002f !important; /* Rojo al pasar el mouse */
+        }
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(/img/amd_hero_bg.jpg) no-repeat center center; /* Asegúrate de tener esta imagen o cámbiala */
+            background-size: cover;
+            padding: 100px 0;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+        .hero-section h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        .hero-section p {
+            font-size: 1.3rem;
+            margin-top: 20px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        .product-section {
+            padding: 60px 0;
+            background-color: #242424; /* Fondo para la sección de productos */
+        }
+        .product-card {
+            background-color: #333333; /* Fondo de las tarjetas de producto */
+            border: none;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease-in-out;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            height: 100%; /* Asegura que todas las tarjetas tengan la misma altura */
+            display: flex;
+            flex-direction: column;
+        }
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+        .product-card img {
+            max-height: 200px;
+            object-fit: cover;
+            width: 100%;
+        }
+        .product-card .card-body {
+            padding: 25px;
+            flex-grow: 1; /* Permite que el cuerpo de la tarjeta crezca */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .product-card .card-title {
+            color: #e2002f; /* Título de producto en rojo */
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        .product-card .card-text {
+            color: #c0c0c0;
+            margin-bottom: 20px;
+        }
+        .btn-red {
+            background-color: #e2002f;
+            border-color: #e2002f;
+            color: white;
+            font-weight: bold;
+            width: 100%; /* Botón de ancho completo */
+        }
+        .btn-red:hover {
+            background-color: #b30024;
+            border-color: #b30024;
+            color: white;
+        }
+        .footer {
+            background-color: #2b2b2b;
+            color: #e0e0e0;
+            padding: 40px 0;
+            text-align: center;
+            border-top: 3px solid #e2002f;
+        }
+        .alert {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1050;
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="{{ url_for('home') }}">
+                <i class="fas fa-microchip me-2"></i> AMD (Tu Plataforma)
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('productos') }}">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('original_index') }}">Sobre Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Soporte</a>
+                    </li>
+                    {% if username %}
+                    <li class="nav-item">
+                        <span class="nav-link text-white-50"><i class="fas fa-user-circle me-1"></i> Hola, {{ username }}</span>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-danger btn-sm text-white ms-lg-3" href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt me-1"></i> Cerrar Sesión</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('login') }}"><i class="fas fa-sign-in-alt me-1"></i> Iniciar Sesión</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('register') }}"><i class="fas fa-user-plus me-1"></i> Registrarse</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <div class="hero-section d-flex align-items-center">
+        <div class="container">
+            <h1>Potencia tu Mundo</h1>
+            <p class="lead">Descubre la innovación y el rendimiento sin límites con nuestros productos de vanguardia.</p>
+            <a href="{{ url_for('productos') }}" class="btn btn-red btn-lg mt-4">Explorar Productos <i class="fas fa-arrow-right ms-2"></i></a>
+        </div>
+    </div>
+
+    <div class="product-section">
+        <div class="container">
+            <h2 class="text-center mb-5 text-white">Nuestros Productos Destacados</h2>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <div class="col">
+                    <div class="card product-card">
+                        <img src="/img/ryzen_cpu.jpg" class="card-img-top" alt="Procesador AMD Ryzen">
+                        <div class="card-body">
+                            <div>
+                                <h5 class="card-title">AMD Ryzen™ 7 7800X3D</h5>
+                                <p class="card-text">Rendimiento líder en juegos y creación de contenido. Experimenta la próxima generación de potencia.</p>
+                            </div>
+                            <a href="#" class="btn btn-red">Ver Detalles</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card product-card">
+                        <img src="/img/radeon_gpu.jpg" class="card-img-top" alt="Tarjeta Gráfica AMD Radeon">
+                        <div class="card-body">
+                            <div>
+                                <h5 class="card-title">AMD Radeon™ RX 7900 XTX</h5>
+                                <p class="card-text">Gráficos excepcionales para gaming 4K y rendimiento superior. Sumérgete en tus mundos favoritos.</p>
+                            </div>
+                            <a href="#" class="btn btn-red">Ver Detalles</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card product-card">
+                        <img src="/img/amd_laptop.jpg" class="card-img-top" alt="Laptop con AMD">
+                        <div class="card-body">
+                            <div>
+                                <h5 class="card-title">Laptop con AMD Ryzen™ Pro</h5>
+                                <p class="card-text">Productividad y movilidad con procesadores AMD Ryzen. Trabaja desde cualquier lugar.</p>
+                            </div>
+                            <a href="#" class="btn btn-red">Ver Detalles</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <a href="{{ url_for('productos') }}" class="btn btn-outline-light btn-lg">Ver Todos los Productos <i class="fas fa-external-link-alt ms-2"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; {{ now.year }} Tu Plataforma Basada en AMD. Todos los derechos reservados.</p>
+            <p>
+                <a href="#" class="text-white-50 mx-2">Política de Privacidad</a> |
+                <a href="#" class="text-white-50 mx-2">Términos de Servicio</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                var alerts = document.querySelectorAll('.alert');
+                alerts.forEach(function(alert) {
+                    new bootstrap.Alert(alert).close();
+                });
+            }, 5000); // Cierra los mensajes después de 5 segundos
+        });
+    </script>
+</body>
+</html>

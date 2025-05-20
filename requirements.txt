@@ -1,0 +1,2 @@
+Flask==2.3.2  # O la versión que prefieras usar
+Werkzeug==2.3.7 # Es una dependencia de Flask, pero es bueno ser explícito si usas sus módulos directamente

@@ -3,14 +3,16 @@ body {
     margin: 0;
 }
 
-/* Encabezado */
+/* --- ESTILOS GENERALES DE ENCABEZADO Y NAVEGACIÓN --- */
+/* Esta sección define un estilo base para cualquier 'header' o 'nav' */
+/* Puede que quieras ajustar estos si tu index.html tiene un header muy diferente */
 header {
-    display: flex;
     height: 70px;
     background-color: #BFA36F;
-    justify-content: space-between;
-    align-items: center;
     padding: 0 20px; /* Ajustar el padding horizontal */
+    display: flex; /* Añadir flex para que los elementos dentro del header se alineen */
+    align-items: center; /* Centrar verticalmente */
+    justify-content: space-between; /* Espaciar contenido */
 }
 
 .menu {
@@ -30,9 +32,10 @@ header {
     font-size: 1.2em;
 }
 
+/* Estilos para los enlaces dentro de cualquier 'nav' (pueden ser sobrescritos) */
 nav a {
     color: black;
-    padding: 5px 10px; /* Ajustar el padding de los enlaces */
+    padding: 5px 10px;
     font-size: 18px;
     text-decoration: none;
     transition: font-size 0.3s ease;
@@ -44,41 +47,140 @@ nav a:hover {
 }
 
 .logo-img {
-    height: 50px; /* Reducir el tamaño del logo */
+    height: 50px;
     margin-left: 10px;
 }
+
+/* --- ESTILOS ESPECÍFICOS PARA EL ENCABEZADO DE PRODUCTOS (Y AHORA TAMBIÉN INDEX) --- */
+/* Usaremos esta clase 'encabezado-productos' en AMBOS headers (index y productos) */
+.encabezado-productos {
+    display: flex; /* Habilitar Flexbox para el header */
+    align-items: center; /* Alinear verticalmente los ítems */
+    justify-content: space-between; /* Espaciar logo, nav, buscador, carrito */
+    padding: 10px 20px;
+    background-color: #BFA36F;
+    border-bottom: 3px solid #e2002f; /* Línea roja distintiva */
+    color: black; /* Color de texto general para el encabezado */
+    height: 70px; /* Asegurar la altura */
+}
+
+.encabezado-productos .logo-contenedor {
+    display: flex;
+    align-items: center;
+}
+
+.encabezado-productos .logo-amd {
+    width: 80px; /* Tamaño para el logo AMD en ambos headers */
+    height: auto;
+    margin-right: 15px;
+}
+
+/* ESTILOS CLAVE PARA LA NAVEGACIÓN HORIZONTAL */
+.encabezado-productos nav ul {
+    list-style: none; /* Eliminar viñetas de lista */
+    margin: 0;
+    padding: 0;
+    display: flex; /* ¡MÁS IMPORTANTE! Alinea los <li> horizontalmente */
+    align-items: center; /* Centrar verticalmente los enlaces */
+}
+
+.encabezado-productos nav ul li {
+    margin-right: 20px; /* Espacio entre cada elemento de la lista (enlace) */
+}
+
+/* Estilos para los enlaces dentro de la navegación específica de encabezado-productos */
+.encabezado-productos nav ul li a {
+    color: black; /* Color por defecto */
+    text-decoration: none;
+    transition: color 0.3s ease, font-size 0.3s ease; /* Transición para ambos */
+    font-weight: bold; /* Negrita */
+    font-size: 1em; /* Tamaño base */
+    padding: 5px 10px; /* Padding para que sean más clickables */
+    white-space: nowrap; /* Evita que el texto se rompa en varias líneas */
+}
+
+.encabezado-productos nav ul li a:hover {
+    color: white; /* Color al pasar el mouse */
+    font-size: 1.1em; /* Ligeramente más grande al pasar el mouse */
+}
+
+.buscador-contenedor {
+    margin-left: auto; /* Empuja el buscador hacia la derecha */
+    margin-right: 20px;
+    display: flex; /* Para centrar el input si hay más elementos */
+    align-items: center;
+}
+
+#buscador {
+    padding: 6px 10px;
+    width: 180px; /* Ancho fijo para el buscador */
+    max-width: 250px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 0.9em;
+    background-color: #444;
+    color: white;
+}
+
+/* Estilos para el carrito en el encabezado */
+.carrito-contenedor {
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-left: 15px;
+}
+
+.carrito-icono {
+    width: 25px;
+    height: 25px;
+}
+
+#contador-carrito {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 4px;
+    font-size: 0.7em;
+    min-width: 16px;
+    text-align: center;
+}
+/* --- FIN ESTILOS ESPECÍFICOS DE ENCABEZADO Y NAVEGACIÓN --- */
 
 /* Cuerpo */
 article {
     background-color: #262626;
-    padding: 40px 20px; /* Ajustar el padding vertical y horizontal */
+    padding: 40px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 40px; /* Aumentar el espacio entre elementos */
-    min-height: 900px; /* Asegurar una altura mínima */
+    gap: 40px;
+    min-height: 900px;
 }
 
 .contenedor-rx {
-    width: 90%; /* Hacer el contenedor más ancho */
-    max-width: 800px; /* Establecer un ancho máximo */
+    width: 90%;
+    max-width: 800px;
 }
 
 .Rx-amd {
-    width: 100%; /* Hacer la imagen responsive dentro de su contenedor */
+    width: 100%;
     height: auto;
     border-radius: 15px;
-    max-height: 500px; /* Limitar la altura máxima de la imagen */
-    object-fit: cover; /* Cubrir el contenedor manteniendo la proporción */
+    max-height: 500px;
+    object-fit: cover;
 }
 
 .contenedor-productos {
     display: flex;
     justify-content: center;
-    gap: 20px; /* Reducir el espacio entre productos */
+    gap: 20px;
     flex-wrap: wrap;
-    width: 95%; /* Hacer el contenedor de productos más ancho */
-    max-width: 1200px; /* Establecer un ancho máximo */
+    width: 95%;
+    max-width: 1200px;
 }
 
 .producto {
@@ -86,26 +188,26 @@ article {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    margin-bottom: 20px; /* Aumentar el margen inferior */
+    margin-bottom: 20px;
     color: white;
-    width: calc(33.33% - 20px); /* Ajustar el ancho para 3 columnas con espacio */
-    max-width: 250px; /* Establecer un ancho máximo para cada producto */
+    width: calc(33.33% - 20px);
+    max-width: 250px;
 }
 
 @media (max-width: 768px) {
     .producto {
-        width: calc(50% - 20px); /* 2 columnas en pantallas medianas */
+        width: calc(50% - 20px);
     }
 }
 
 @media (max-width: 480px) {
     .producto {
-        width: 100%; /* 1 columna en pantallas pequeñas */
+        width: 100%;
     }
 }
 
 .producto img {
-    max-width: 100%; /* Hacer la imagen responsive dentro de su contenedor */
+    max-width: 100%;
     height: auto;
     border: 4px solid black;
     border-radius: 10px;
@@ -122,38 +224,38 @@ article {
 /* Pie de página */
 footer {
     background-color: #000000;
-    padding: 30px 20px; /* Ajustar el padding */
+    padding: 30px 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: auto; /* Ajustar la altura automáticamente */
+    height: auto;
 }
 
 .pie-de-pagina {
     background-color: #8C6F4A;
-    height: 40px; /* Reducir la altura */
-    width: 90%; /* Hacerlo más ancho */
-    max-width: 400px; /* Establecer un ancho máximo */
+    height: 40px;
+    width: 90%;
+    max-width: 400px;
     text-align: center;
-    line-height: 40px; /* Ajustar la altura de línea */
-    margin-bottom: 20px; /* Añadir margen inferior */
+    line-height: 40px;
+    margin-bottom: 20px;
 }
 
 /* Icono de volver al inicio */
 #arriba {
-    height: 40px; /* Reducir el tamaño */
-    width: 40px; /* Reducir el tamaño */
-    margin-bottom: 15px; /* Reducir el margen inferior */
+    height: 40px;
+    width: 40px;
+    margin-bottom: 15px;
 }
 
 .Casita {
     display: block;
-    height: 40px; /* Reducir el tamaño */
+    height: 40px;
 }
 
 .casita {
-    height: 40px; /* Reducir el tamaño */
+    height: 40px;
     padding: 0;
 }
 
@@ -163,16 +265,16 @@ footer {
     color: black;
     text-decoration: none;
     justify-content: center;
-    margin-bottom: 15px; /* Añadir margen inferior */
+    margin-bottom: 15px;
 }
 
 /* Redes */
 .redes {
-    height: 40px; /* Reducir el tamaño */
+    height: 40px;
     margin: 10px;
     text-decoration: none;
-    display: flex; /* Para alinear los iconos horizontalmente */
-    align-items: center; /* Para alinear verticalmente los iconos */
+    display: flex;
+    align-items: center;
 }
 
 .redes a {
@@ -180,12 +282,12 @@ footer {
 }
 
 .Twitch, .X, .Facebook, .Instagram, .Youtube {
-    height: 40px; /* Reducir el tamaño */
-    margin: 0 10px; /* Aumentar el espacio entre iconos */
+    height: 40px;
+    margin: 0 10px;
 }
 
 .Twitch {
-    height: 36px; /* Ajustar el tamaño específico */
+    height: 36px;
     margin-bottom: 2px;
 }
 
@@ -194,14 +296,14 @@ footer {
     color: white;
     font-weight: 300;
     justify-content: end;
-    font-size: 0.9em; /* Reducir el tamaño de la fuente */
-    text-align: center; /* Centrar el texto */
-    margin-top: 15px; /* Añadir margen superior */
+    font-size: 0.9em;
+    text-align: center;
+    margin-top: 15px;
 }
 
-/* Productos */
+/* Sección de Productos Específicos (contenedor de la página de productos) */
 .productos-page {
-    background-image: url("imagenes/fondo-productos.avif");
+    background-image: url("/imagenes/fondo-productos.avif"); /* Asegúrate que esta ruta sea correcta o cámbiala si la imagen está en /static/img/ */
     background-size: cover;
     background-position: center;
 }
@@ -209,12 +311,12 @@ footer {
 .contenedor-general {
     display: flex;
     min-height: 100vh;
-    flex-direction: column; /* Cambiar a columna para que el logo lateral esté arriba o abajo si es necesario */
+    flex-direction: column;
 }
 
 @media (min-width: 769px) {
     .contenedor-general {
-        flex-direction: row; /* Volver a fila en pantallas más grandes */
+        flex-direction: row;
     }
 
     .logo-lateral {
@@ -224,28 +326,28 @@ footer {
         align-items: center;
         justify-content: center;
         padding: 30px;
-        flex-shrink: 0; /* Evitar que se encoja */
+        flex-shrink: 0;
     }
 
     .zona-productos {
-        width: 80%; /* Ajustar el ancho de la zona de productos */
+        width: 80%;
         padding: 40px;
         background-color: #262626;
     }
 }
 
 .logo-lateral {
-    width: 100%; /* Ancho completo en pantallas pequeñas */
+    width: 100%;
     background-color: #BFA36F;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 20px;
-    margin-bottom: 20px; /* Añadir margen inferior */
+    margin-bottom: 20px;
 }
 
 .logo-lateral img {
-    max-width: 80%; /* Reducir el tamaño de la imagen en pantallas pequeñas */
+    max-width: 80%;
     height: auto;
 }
 
@@ -256,23 +358,23 @@ footer {
 }
 
 .titulo-productos {
-    font-size: 2rem; /* Reducir el tamaño del título */
+    font-size: 2rem;
     color: #fcfcfc;
     text-align: center;
-    margin-bottom: 20px; /* Reducir el margen inferior */
+    margin-bottom: 20px;
     font-weight: bold;
     letter-spacing: 1px;
 }
 
 .contenido-productos {
     display: flex;
-    flex-direction: column; /* Cambiar a columna en pantallas pequeñas */
+    flex-direction: column;
     gap: 20px;
 }
 
 @media (min-width: 769px) {
     .contenido-productos {
-        flex-direction: row; /* Volver a fila en pantallas más grandes */
+        flex-direction: row;
         gap: 30px;
     }
 }
@@ -280,184 +382,106 @@ footer {
 /* Grid de productos */
 .grid-productos {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Ajustar para responsividad */
-    gap: 15px; /* Reducir el espacio entre tarjetas */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
     flex: 1;
 }
 
 .tarjeta-producto {
     background-color: #ffffff;
-    border-radius: 8px; /* Reducir el radio del borde */
-    padding: 10px; /* Reducir el relleno */
+    border-radius: 8px;
+    padding: 10px;
     text-align: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Reducir la sombra */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s, border 0.2s;
 }
 
 .tarjeta-producto:hover {
-    transform: scale(1.03); /* Reducir la escala del hover */
-    border: 1px solid #ff6600; /* Reducir el grosor del borde del hover */
+    transform: scale(1.03);
+    border: 1px solid #ff6600;
 }
 
 .tarjeta-producto img {
     width: 100%;
-    height: auto; /* Ajustar la altura automáticamente */
-    max-height: 120px; /* Limitar la altura máxima de la imagen */
+    height: auto;
+    max-height: 120px;
     object-fit: contain;
-    margin-bottom: 8px; /* Reducir el margen inferior */
+    margin-bottom: 8px;
 }
 
 .tarjeta-producto p {
-    font-size: 0.9rem; /* Reducir el tamaño de la fuente del texto */
+    font-size: 0.9rem;
     margin: 3px 0;
 }
 
 .precio {
     color: #d9480f;
     font-weight: bold;
-    font-size: 1rem; /* Reducir el tamaño de la fuente del precio */
+    font-size: 1rem;
 }
 
-/* Encabezado productos */
-.encabezado-productos {
-    display: flex;
-    align-items: center;
-    justify-content: space-between; /* Espaciar logo y navegación */
-    padding: 10px 20px; /* Ajustar el padding */
-    background-color: #BFA36F;
-    border-bottom: 1px solid #BFA36F;
-}
-
-.logo-contenedor {
-    margin-bottom: 0; /* Eliminar margen inferior */
-}
-
-.logo-amd {
-    width: 80px; /* Reducir el tamaño del logo */
-}
-
-.nav-productos {
-    margin-bottom: 0; /* Eliminar margen inferior */
-}
-
-.nav-productos a {
-    margin: 0 10px; /* Reducir el margen entre enlaces */
-    text-decoration: none;
-    color: black;
-    font-weight: bold;
-    transition: color 0.3s;
-    font-size: 1em; /* Ajustar el tamaño de la fuente */
-}
-
-.nav-productos a:hover {
-    color: #fffefe;
-}
-
-.buscador-contenedor {
-    margin-bottom: 0; /* Eliminar margen inferior */
-}
-
-#buscador {
-    padding: 6px 10px; /* Reducir el padding */
-    width: 80%; /* Hacer el buscador más ancho en pantallas pequeñas */
-    max-width: 250px; /* Establecer un ancho máximo */
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    font-size: 0.9em; /* Reducir el tamaño de la fuente */
-}
-
-/* Filtro  */
+/* Filtro */
 .filtro-estetico {
     background-color: #f4f4f4;
-    padding: 10px 15px; /* Reducir el padding */
-    border-radius: 8px; /* Reducir el radio del borde */
+    padding: 10px 15px;
+    border-radius: 8px;
     border: 1px solid #ccc;
     height: fit-content;
     align-self: flex-start;
-    width: 100%; /* Ancho completo en pantallas pequeñas */
-    margin-bottom: 20px; /* Añadir margen inferior */
+    width: 100%;
+    margin-bottom: 20px;
 }
 
 @media (min-width: 769px) {
     .filtro-estetico {
-        width: 220px; /* Volver al ancho original en pantallas grandes */
-        margin-bottom: 0; /* Eliminar margen inferior */
+        width: 220px;
+        margin-bottom: 0;
     }
 }
 
 .filtro-estetico h3 {
-    font-size: 1.1rem; /* Reducir el tamaño del título del filtro */
-    margin-bottom: 8px; /* Reducir el margen inferior */
+    font-size: 1.1rem;
+    margin-bottom: 8px;
     color: black;
 }
 
 .filtro-estetico label {
     display: block;
-    margin: 3px 0; /* Reducir el margen vertical */
+    margin: 3px 0;
     color: #333;
-    font-size: 0.9em; /* Reducir el tamaño de la fuente de las etiquetas */
+    font-size: 0.9em;
 }
 
 .filtro-estetico input[type="checkbox"] {
-    margin-right: 5px; /* Reducir el margen derecho */
-}
-
-
-/*carrito de compraas*/
-
-/* Estilos para el carrito en el encabezado */
-.carrito-contenedor {
-    position: relative;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    margin-left: 15px; /* Ajustar según necesites */
-}
-
-.carrito-icono {
-    width: 25px; /* Ajustar el tamaño del icono */
-    height: 25px;
-}
-
-#contador-carrito {
-    position: absolute;
-    top: -6px;
-    right: -6px;
-    background-color: red;
-    color: white;
-    border-radius: 50%;
-    padding: 4px;
-    font-size: 0.7em;
-    min-width: 16px;
-    text-align: center;
+    margin-right: 5px;
 }
 
 /* Estilos para el modal del carrito */
 .modal {
-    display: none; /* Oculto por defecto */
-    position: fixed; /* Se queda en su lugar */
-    z-index: 1; /* Por encima de otros elementos */
+    display: none;
+    position: fixed;
+    z-index: 1;
     left: 0;
     top: 0;
-    width: 100%; /* Ancho completo */
-    height: 100%; /* Alto completo */
-    overflow: auto; /* Habilitar scroll si es necesario */
-    background-color: rgba(0,0,0,0.4); /* Fondo oscuro con transparencia */
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
 }
 
 .modal-contenido {
     background-color: #fefefe;
-    margin: 15% auto; /* Centrar el modal */
+    margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 90%; /* Ajustar el ancho del modal para pantallas pequeñas */
-    max-width: 600px; /* Ancho máximo del modal */
+    width: 90%;
+    max-width: 600px;
 }
 
 .cerrar-modal {
     color: #aaa;
     float: right;
-    font-size: 22px; /* Reducir el tamaño del botón cerrar */
+    font-size: 22px;
     font-weight: bold;
 }
 
@@ -477,9 +501,9 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 6px 0; /* Reducir el padding */
+    padding: 6px 0;
     border-bottom: 1px solid #eee;
-    font-size: 0.9em; /* Reducir el tamaño de la fuente */
+    font-size: 0.9em;
 }
 
 #lista-carrito li:last-child {

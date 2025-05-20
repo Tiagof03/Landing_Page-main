@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda Oficial AMD</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/img/amd-icon.png">
+</head>
+<body id="Inicio">
+    <header class="encabezado-productos navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="{{ url_for('original_index') }}">
+                <img class="logo-img me-2" src="/img/amd-icon.png" alt="Logo de tienda">
+                <h1 class="mb-0 fs-4 text-dark"></h1>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <nav class="ms-auto"> <ul class="navbar-nav"> <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('productos') }}">Productos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('original_index') }}#contacto">Contacto</a> </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('original_index') }}#sobre-nosotros">Sobre Nosotros</a> </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('home') }}">Mi Área (AMD Dashboard)</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('register') }}">Registro</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <article>
+        <div class="contenedor-rx">
+            <a href="{{ url_for('productos') }}">
+                <img class="Rx-amd" src="/img/amd-9000.jpg" alt="amd-rx">
+            </a>
+        </div>
+
+        <div class="contenedor-productos">
+            <div class="producto">
+                <a class="Ryzen9000" href="{{ url_for('productos') }}">
+                    <img class="img1" src="/iconos-productos/Ryzen 9000-sf.png" alt="Producto1">
+                </a>
+            <p>AMD <br> Ryzen 9950X</p>
+            </div>
+            <div class="producto">
+                <a class="RX9000" href="{{ url_for('productos') }}">
+                    <img class="img2" src="/iconos-productos/RX-9070-sf.png" alt="Producto1">
+                </a>
+            <p>VIDEO RADEON<br>GIGABYTE RX 9070 <br> AORUS AGMING OC</p>
+            </div>
+            <div class="producto">
+                <a class="Motherboard" href="{{ url_for('productos') }}">
+                    <img class="img3" src="/iconos-productos/motherboard-sf.png" alt="Producto1">
+                </a>
+            <p>Motherboard<br>ASUS ROG MAXIMUS<br>XIII HERO</p>
+            </div>
+            <div class="producto">
+                <a class="RyzenX3D" href="{{ url_for('productos') }}">
+                    <img class="img4" src="/iconos-productos/Ryzen X3D-sf.png" alt="Producto1">
+                </a>
+            <p>AMD <br> Ryzen 7 7800X3D </p>
+            </div>
+        </div>
+    </article>
+    
+    <footer>
+        <div id="arriba">
+            <a href="{{ url_for('original_index') }}" class="Casita">
+                <img src="/img/casa.png" class="casita" alt="Volver al Inicio">
+            </a>
+        </div>
+
+        <div class="pie-de-pagina">
+            <a class="suscripcion" href="formulario.html">Suscribete para recibir noticias de AMD</a>
+        </div>
+
+        <div class="redes">
+            <a href="https://www.twitch.tv/amd" target="_blank" class="twitch">
+                <img src="/img/icons/twitch.png" class="Twitch" alt="Twitch">
+            </a>
+            <a href="https://x.com/amd" target="_blank" class="x">
+                <img src="/img/icons/x.png" class="X" alt="Twitter">
+            </a>
+            <a href="https://www.facebook.com/AMD/" target="_blank" class="facebook">
+                <img src="/img/icons/facebook.png" class="Facebook" alt="Facebook">
+            </a>
+            <a href="https://www.instagram.com/amd/" target="_blank" class="instagram">
+                <img src="/img/icons/instagram.png" class="Instagram" alt="Instagram">
+            </a>
+            <a href="https://www.youtube.com/user/amd" target="_blank" class="youtube">
+                <img src="/img/icons/youtube.png" class="Youtube" alt="Youtube">
+            </a>
+        </div>
+        <div class="derechos">
+            <p>© 2025 Advanced Micro Devices, Inc.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>

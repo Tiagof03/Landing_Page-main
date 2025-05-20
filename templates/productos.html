@@ -5,24 +5,49 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Productos AMD</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-  <header class="encabezado-productos">
-    <div class="logo-contenedor">
-      <img src="img/amd-icon.png" alt="Logo AMD" class="logo-amd" />
-    </div>
-    <nav class="nav-productos">
-      <a href="index.html">Inicio</a>
-      <a href="">Contacto</a>
-      <a href="#">Sobre Nosotros</a>
-    </nav>
-    <div class="buscador-contenedor">
-      <input type="text" id="buscador" placeholder="Buscar productos..." />
-    </div>
-    <div class="carrito-contenedor">
-      <img src="img/shop_shopping_cart_ecommerce_icon_221174.png" alt="Carrito de Compras" class="carrito-icono" />
-      <span id="contador-carrito">0</span>
+  <header class="encabezado-productos navbar navbar-expand-lg">
+    <div class="container-fluid">
+        <a class="navbar-brand d-flex align-items-center" href="{{ url_for('original_index') }}">
+            <img class="logo-amd me-2" src="/img/amd-icon.png" alt="Logo AMD">
+            <h1 class="mb-0 fs-4 text-dark"></h1>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <nav class="ms-auto"> <ul class="navbar-nav"> <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('productos') }}">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('original_index') }}#contacto">Contacto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('original_index') }}#sobre-nosotros">Sobre nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('home') }}">Mi Área (AMD Dashboard)</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('register') }}">Registro</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="d-flex align-items-center ms-lg-3"> <div class="buscador-contenedor">
+                    <input type="text" id="buscador" placeholder="Buscar productos..." class="form-control" />
+                </div>
+                <div class="carrito-contenedor ms-3"> <img src="/img/shop_shopping_cart_ecommerce_icon_221174.png" alt="Carrito de Compras" class="carrito-icono" />
+                    <span id="contador-carrito">0</span>
+                </div>
+            </div>
+        </div>
     </div>
   </header>
 
@@ -33,105 +58,105 @@
       <div class="contenido-productos">
         <div class="grid-productos">
           <div class="tarjeta-producto" data-id="1" data-nombre="Ryzen 3 3200G" data-precio="105000">
-            <img src="iconos-productos/RYZEN_3_3200G_.jpg" alt="Ryzen 3 3200G">
+            <img src="/iconos-productos/RYZEN_3_3200G_.jpg" alt="Ryzen 3 3200G">
             <p>Ryzen 3 3200G</p>
             <p class="precio">$105.000</p>
             <button class="boton-agregar-carrito">Agregar al carrito</button>
           </div>
 
           <div class="tarjeta-producto" data-id="2" data-nombre="Ryzen 5 5600G" data-precio="200000">
-            <img src="iconos-productos/Ryzen_5_5600G_.jpg" alt="Ryzen 5 5600G">
+            <img src="/iconos-productos/Ryzen_5_5600G_.jpg" alt="Ryzen 5 5600G">
             <p>Ryzen 5 5600G</p>
             <p class="precio">$200.000</p>
             <button class="boton-agregar-carrito">Agregar al carrito</button>
           </div>
 
           <div class="tarjeta-producto" data-id="3" data-nombre="Ryzen 7 5700G" data-precio="260000">
-            <img src="iconos-productos/Ryzen_7_5700G_.jpg" alt="Ryzen 7 5700G">
+            <img src="/iconos-productos/Ryzen_7_5700G_.jpg" alt="Ryzen 7 5700G">
             <p>Ryzen 7 5700G</p>
             <p class="precio">$260.000</p>
             <button class="boton-agregar-carrito">Agregar al carrito</button>
           </div>
 
           <div class="tarjeta-producto" data-id="4" data-nombre="Athlon 3000G" data-precio="65000">
-            <img src="iconos-productos/Athlon_3000G_.jpg" alt="Athlon 3000G">
+            <img src="/iconos-productos/Athlon_3000G_.jpg" alt="Athlon 3000G">
             <p>Athlon 3000G</p>
             <p class="precio">$65.000</p>
             <button class="boton-agregar-carrito">Agregar al carrito</button>
           </div>
 
           <div class="tarjeta-producto" data-id="5" data-nombre="Ryzen 9 9950X3D" data-precio="1245000">
-            <img src="iconos-productos/Ryzen_9_9950X3D.jpg" alt="Ryzen 9 9950X3D">
+            <img src="/iconos-productos/Ryzen_9_9950X3D.jpg" alt="Ryzen 9 9950X3D">
             <p>Ryzen 9 9950X3D</p>
             <p class="precio">$1.245.000</p>
             <button class="boton-agregar-carrito">Agregar al carrito</button>
           </div>
 
           <div class="tarjeta-producto" data-id="6" data-nombre="Ryzen 7 9800X3D" data-precio="360000">
-            <img src="iconos-productos/Ryzen_7_9800X3D.jpg" alt="Ryzen 7 9800X3D">
+            <img src="/iconos-productos/Ryzen_7_9800X3D.jpg" alt="Ryzen 7 9800X3D">
             <p>Ryzen 7 9800X3D</p>
             <p class="precio">$360.000</p>
             <button class="boton-agregar-carrito">Agregar al carrito</button>
           </div>
 
           <div class="tarjeta-producto" data-id="7" data-nombre="Ryzen 5 5600GT" data-precio="700000">
-            <img src="iconos-productos/Ryzen_5_5600GT_.jpg" alt="Ryzen 5 5600GT">
+            <img src="/iconos-productos/Ryzen_5_5600GT_.jpg" alt="Ryzen 5 5600GT">
             <p>Ryzen 5 5600GT</p>
             <p class="precio">$700.000</p>
             <button class="boton-agregar-carrito">Agregar al carrito</button>
           </div>
 
           <div class="tarjeta-producto" data-id="8" data-nombre="Ryzen 9 5900XT" data-precio="800000">
-            <img src="iconos-productos/Ryzen_9_5900XT_.jpg" alt="Ryzen 9 5900XT">
+            <img src="/iconos-productos/Ryzen_9_5900XT_.jpg" alt="Ryzen 9 5900XT">
             <p>Ryzen 9 5900XT</p>
             <p class="precio">$800.000</p>
             <button class="boton-agregar-carrito">Agregar al carrito</button>
           </div>
 
           <div class="tarjeta-producto" data-id="9" data-nombre="Ryzen 9950X" data-precio="490000">
-            <img src="iconos-productos/Ryzen 9000-sf.png" alt="Ryzen 9950X">
+            <img src="/iconos-productos/Ryzen 9000-sf.png" alt="Ryzen 9950X">
             <p>Ryzen 9950X</p>
             <p class="precio">$490.000</p>
             <button class="boton-agregar-carrito">Agregar al carrito</button>
           </div>
 
           <div class="tarjeta-producto" data-id="10" data-nombre="Ryzen 7 7800X3D" data-precio="400000">
-            <img src="iconos-productos/Ryzen X3D-sf.png" alt="Ryzen 7 7800X3D">
+            <img src="/iconos-productos/Ryzen X3D-sf.png" alt="Ryzen 7 7800X3D">
             <p>Ryzen 7 7800X3D</p>
             <p class="precio">$400.000</p>
             <button class="boton-agregar-carrito">Agregar al carrito</button>
           </div>
 
           <div class="tarjeta-producto" data-id="11" data-nombre="Mother Asus B450m A II Prime" data-precio="105000">
-            <img src="iconos-productos/Mother Asus B450m A II Prime.webp" alt="Mother Asus B450m A II Prime">
+            <img src="/iconos-productos/Mother Asus B450m A II Prime.webp" alt="Mother Asus B450m A II Prime">
             <p>Mother Asus B450m A II Prime</p>
             <p class="precio">$105.000</p>
             <button class="boton-agregar-carrito">Agregar al carrito</button>
           </div>
 
           <div class="tarjeta-producto" data-id="12" data-nombre="Placa Madre Asus Tuf Gaming B450m" data-precio="115000">
-            <img src="iconos-productos/Placa Madre Asus Tuf Gaming B450m.webp" alt="Mother Asus Tuf Gaming B450m">
+            <img src="/iconos-productos/Placa Madre Asus Tuf Gaming B450m.webp" alt="Mother Asus Tuf Gaming B450m">
             <p>Placa Madre Asus Tuf Gaming B450m</p>
             <p class="precio">$115.000</p>
             <button class="boton-agregar-carrito">Agregar al carrito</button>
           </div>
 
           <div class="tarjeta-producto" data-id="13" data-nombre="RADEON RX 500 8GB" data-precio="450000">
-            <img src="iconos-productos/RADEON RX 500 8GB.webp" alt="RADEON RX 500 8GB">
+            <img src="/iconos-productos/RADEON RX 500 8GB.webp" alt="RADEON RX 500 8GB">
             <p>RADEON RX 500 8GB</p>
             <p class="precio">$450.000</p>
             <button class="boton-agregar-carrito">Agregar al carrito</button>
           </div>
 
           <div class="tarjeta-producto" data-id="14" data-nombre="RADEON RX 6600 8GB" data-precio="540000">
-            <img src="iconos-productos/RADEON RX 6600  8GB.webp" alt="RADEON RX 6600 8GB">
+            <img src="/iconos-productos/RADEON RX 6600  8GB.webp" alt="RADEON RX 6600 8GB">
             <p>RADEON RX 6600 8GB</p>
             <p class="precio">$540.000</p>
             <button class="boton-agregar-carrito">Agregar al carrito</button>
           </div>
 
           <div class="tarjeta-producto" data-id="15" data-nombre="RADEON RX 6900 XT 16GB" data-precio="1250000">
-            <img src="iconos-productos/RADEON RX 6900 XT 16GB.webp" alt="RADEON RX 6900 XT 16GB">
+            <img src="/iconos-productos/RADEON RX 6900 XT 16GB.webp" alt="RADEON RX 6900 XT 16GB">
             <p>RADEON RX 6900 XT 16GB</p>
             <p class="precio">$1.250.000</p>
             <button class="boton-agregar-carrito">Agregar al carrito</button>
@@ -160,6 +185,6 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-  <script src="JS/javaS.js"></script>
+  <script src="/JS/javaS.js"></script>
 </body>
-</html>   
+</html>
